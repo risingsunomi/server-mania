@@ -1,0 +1,340 @@
+[gd_scene load_steps=20 format=3 uid="uid://bc3382l7xmi3t"]
+
+[ext_resource type="Script" path="res://scripts/scene_1.gd" id="1_j3nuq"]
+[ext_resource type="PackedScene" uid="uid://ddllt14vjqyq4" path="res://assets/floor.glb" id="3_al57h"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="5_5ekb1"]
+[ext_resource type="PackedScene" uid="uid://ddkujcy725cxx" path="res://assets/hoodie_blender_remix.glb" id="5_ytomi"]
+[ext_resource type="PackedScene" uid="uid://bgboyj7n7paeb" path="res://assets/Wall.glb" id="7_8t4sn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_llnw6"]
+size = Vector3(1.98242, 1, 1)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_53ywk"]
+animation = &"CharacterArmature|Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lmyp7"]
+animation = &"CharacterArmature|Run"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_81qwg"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_igr1p"]
+graph_offset = Vector2(-644.476, 79.0579)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_lmyp7")
+nodes/Animation/position = Vector2(-300, 120)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_53ywk")
+"nodes/Animation 2/position" = Vector2(-300, 280)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_81qwg")
+nodes/Blend2/position = Vector2(60, 120)
+node_connections = [&"Blend2", 0, &"Animation 2", &"Blend2", 1, &"Animation", &"output", 0, &"Blend2"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bux26"]
+animation = &"CharacterArmature|Interact"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_63f26"]
+animation = &"CharacterArmature|Idle"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_afnbm"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_jx1ci"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_63f26")
+nodes/Animation/position = Vector2(80, 60)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_bux26")
+"nodes/Animation 2/position" = Vector2(80, 220)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_afnbm")
+nodes/Blend2/position = Vector2(380, 120)
+nodes/output/position = Vector2(620, 160)
+node_connections = [&"Blend2", 0, &"Animation", &"Blend2", 1, &"Animation 2", &"output", 0, &"Blend2"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_aqjkq"]
+states/Idle/node = SubResource("AnimationNodeBlendTree_igr1p")
+states/Idle/position = Vector2(352, 90)
+states/Start/position = Vector2(195, 79)
+states/Use/node = SubResource("AnimationNodeBlendTree_jx1ci")
+states/Use/position = Vector2(268, 186)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_og1ha"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vwbkb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8d1ki"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8xar5"]
+size = Vector3(1.00293, 1, 1)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_j3nuq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.50768, 7.08776, -1.98147)
+light_color = Color(0.913471, 0.888646, 0.838858, 1)
+light_energy = 10.0
+light_bake_mode = 1
+omni_range = 50.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.4067, 7.08776, -1.98147)
+light_color = Color(0.0941686, 0.575338, 0.818256, 1)
+light_energy = 10.0
+light_bake_mode = 1
+omni_range = 50.0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.2847, 7.08776, -1.98147)
+light_color = Color(0.0941686, 0.575338, 0.818256, 1)
+light_energy = 10.0
+light_bake_mode = 1
+omni_range = 50.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9065, 7.08776, -1.98147)
+light_color = Color(0.913725, 0.890196, 0.839216, 1)
+light_energy = 10.0
+light_bake_mode = 1
+omni_range = 50.0
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.687, 7.08776, -1.98147)
+light_color = Color(0.0941686, 0.575338, 0.818256, 1)
+light_energy = 2.455
+light_bake_mode = 1
+omni_range = 14.905
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.1493, 7.08776, -1.98147)
+light_color = Color(0.0941176, 0.576471, 0.819608, 1)
+light_energy = 2.455
+light_bake_mode = 1
+omni_range = 14.905
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.447, 7.08776, -1.98147)
+light_color = Color(0.0941176, 0.576471, 0.819608, 1)
+light_energy = 2.455
+light_bake_mode = 1
+omni_range = 14.905
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.2642, 7.08776, -1.98147)
+light_color = Color(0.0941176, 0.576471, 0.819608, 1)
+light_energy = 2.455
+light_bake_mode = 1
+omni_range = 14.905
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.3417, 7.08776, -1.98147)
+light_color = Color(0.0941176, 0.576471, 0.819608, 1)
+light_energy = 2.455
+light_bake_mode = 1
+omni_range = 14.905
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135.665, 7.08776, -1.98147)
+light_color = Color(0.0941176, 0.576471, 0.819608, 1)
+light_energy = 2.455
+light_bake_mode = 1
+omni_range = 14.905
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.435, 7.08776, -1.98147)
+light_color = Color(0.0941176, 0.576471, 0.819608, 1)
+light_energy = 2.455
+light_bake_mode = 1
+omni_range = 14.905
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.828, 7.08776, -1.98147)
+light_color = Color(0.913725, 0.890196, 0.839216, 1)
+light_energy = 10.0
+light_bake_mode = 1
+omni_range = 50.0
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(147.882, 0, 0, 0, 0.999333, 0, 0, 0, 11.992, 0, 0, 0)
+collision_mask = 29
+
+[node name="floor_gib" parent="Floor" instance=ExtResource("3_al57h")]
+transform = Transform3D(1, 0, 0, 0, 2.40928, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 0.470382, 0, 0, 0, 1.96797, 0.000733428, 0, 0)
+shape = SubResource("BoxShape3D_llnw6")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32752, 0)
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("5_5ekb1")
+
+[node name="hoodie_blender_remix" parent="Player" instance=ExtResource("5_ytomi")]
+
+[node name="Skeleton3D" parent="Player/hoodie_blender_remix/RootNode/CharacterArmature" index="0"]
+bones/0/rotation = Quaternion(0.707107, 5.33851e-08, 5.33851e-08, 0.707107)
+bones/2/rotation = Quaternion(-0.069429, 1.7456e-07, -5.56636e-08, 0.997587)
+bones/3/rotation = Quaternion(0.0477813, 3.9374e-08, 4.85287e-08, 0.998858)
+bones/4/rotation = Quaternion(0.0275165, -8.33733e-07, 6.12489e-09, 0.999621)
+bones/5/rotation = Quaternion(0.00363665, 1.52158e-10, -2.22324e-09, 0.999993)
+bones/6/rotation = Quaternion(-0.00947108, 6.1947e-07, -7.89342e-11, 0.999955)
+bones/7/rotation = Quaternion(-2.79395e-09, -0.000275405, 7.67207e-13, 1)
+bones/7/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(0.456201, 0.840231, 0.106908, -0.272881)
+bones/10/rotation = Quaternion(-0.26928, 0.453175, 0.120343, 0.841212)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(-0.000359433, -0.00490261, -0.0731077, 0.997312)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(-0.00885558, 0.0142181, -0.093319, 0.995495)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(0.0823036, -0.0396744, 0.0705522, 0.993315)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(-0.0147682, -0.0020644, 0.0177647, 0.999731)
+bones/16/rotation = Quaternion(0.00544925, 0.00270938, 0.0015576, 0.99998)
+bones/16/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(0.02572, -0.0194089, 0.0169108, 0.999338)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(0.010188, 0.0145434, 0.00853034, 0.999806)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/scale = Vector3(1, 1, 1)
+bones/23/rotation = Quaternion(0.00911405, -0.0503409, 0.127958, 0.990459)
+bones/24/rotation = Quaternion(0.0338704, 0.113904, -0.0257658, 0.99258)
+bones/24/scale = Vector3(1, 1, 1)
+bones/25/rotation = Quaternion(0.0129962, -0.00781184, -0.0127382, 0.999804)
+bones/25/scale = Vector3(1, 1, 1)
+bones/26/rotation = Quaternion(-0.000227199, 0.0032135, 0.00900611, 0.999954)
+bones/29/rotation = Quaternion(0.0378413, 0.176417, -0.0650673, 0.981433)
+bones/29/scale = Vector3(1, 1, 1)
+bones/30/rotation = Quaternion(0.00602118, -0.0113944, 0.0152474, 0.999801)
+bones/31/rotation = Quaternion(0.0129976, 0.000909322, 0.00115986, 0.999914)
+bones/31/scale = Vector3(1, 1, 1)
+bones/33/rotation = Quaternion(-0.0766582, 0.177788, -0.405304, 0.893445)
+bones/34/scale = Vector3(1, 1, 1)
+bones/35/rotation = Quaternion(0.0230066, -0.0176453, 0.069499, 0.997161)
+bones/37/rotation = Quaternion(-0.456201, 0.840231, 0.106908, 0.272881)
+bones/38/rotation = Quaternion(-0.26928, -0.453175, -0.120343, 0.841212)
+bones/38/scale = Vector3(1, 1, 1)
+bones/39/rotation = Quaternion(-0.000359453, 0.00490281, 0.0731077, 0.997312)
+bones/39/scale = Vector3(1, 1, 1)
+bones/40/rotation = Quaternion(0.0105411, -0.0212144, -0.0393221, 0.998946)
+bones/40/scale = Vector3(1, 1, 1)
+bones/41/rotation = Quaternion(-0.00885559, -0.0142181, 0.0933191, 0.995495)
+bones/41/scale = Vector3(1, 1, 1)
+bones/42/rotation = Quaternion(0.0823035, 0.0396745, -0.0705522, 0.993315)
+bones/43/rotation = Quaternion(-0.0147626, 0.00206419, -0.017765, 0.999731)
+bones/43/scale = Vector3(1, 1, 1)
+bones/44/rotation = Quaternion(0.0054445, -0.00270931, -0.00155679, 0.99998)
+bones/46/rotation = Quaternion(0.0257255, 0.0194088, -0.0169111, 0.999338)
+bones/47/rotation = Quaternion(0.0101824, -0.0145435, -0.00852994, 0.999806)
+bones/47/scale = Vector3(1, 1, 1)
+bones/48/rotation = Quaternion(-0.0166501, 0.00589331, 0.00282572, 0.99984)
+bones/51/rotation = Quaternion(0.00911406, 0.0503408, -0.127958, 0.990459)
+bones/52/rotation = Quaternion(0.0338704, -0.113904, 0.0257659, 0.99258)
+bones/52/scale = Vector3(1, 1, 1)
+bones/53/rotation = Quaternion(0.0129961, 0.00781176, 0.0127376, 0.999804)
+bones/53/scale = Vector3(1, 1, 1)
+bones/54/rotation = Quaternion(-0.00022718, -0.00321329, -0.00900575, 0.999954)
+bones/56/rotation = Quaternion(0.017031, 0.0719204, -0.226359, 0.971236)
+bones/56/scale = Vector3(1, 1, 1)
+bones/57/rotation = Quaternion(0.0378414, -0.176417, 0.0650669, 0.981433)
+bones/58/rotation = Quaternion(0.00602111, 0.0113945, -0.0152473, 0.999801)
+bones/59/rotation = Quaternion(0.0129976, -0.000909327, -0.00115995, 0.999914)
+bones/61/rotation = Quaternion(-0.0766582, -0.177788, 0.405304, 0.893445)
+bones/61/scale = Vector3(1, 1, 1)
+bones/62/scale = Vector3(1, 1, 1)
+bones/63/rotation = Quaternion(0.0230068, 0.0176453, -0.0694992, 0.997161)
+bones/66/rotation = Quaternion(0.0520833, 0.705186, -0.0520833, 0.705186)
+bones/66/scale = Vector3(1, 1, 1)
+bones/69/scale = Vector3(1, 1, 1)
+bones/73/rotation = Quaternion(-0.00267267, 3.3899e-05, -9.06012e-08, 0.999996)
+bones/73/scale = Vector3(1, 1, 1)
+bones/77/rotation = Quaternion(-0.00267267, -3.405e-05, 9.10048e-08, 0.999996)
+bones/77/scale = Vector3(1, 1, 1)
+
+[node name="AnimationPlayer" parent="Player/hoodie_blender_remix" index="1"]
+root_motion_track = NodePath("RootNode/CharacterArmature/Skeleton3D:Root")
+
+[node name="AnimationTree" type="AnimationTree" parent="Player/hoodie_blender_remix"]
+root_motion_track = NodePath("RootNode/CharacterArmature/Skeleton3D:Root")
+tree_root = SubResource("AnimationNodeStateMachine_aqjkq")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Idle/Blend2/blend_amount = 0.0
+parameters/Use/Blend2/blend_amount = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0.940863, 0.0581976)
+shape = SubResource("CapsuleShape3D_og1ha")
+
+[node name="CameraMount" type="StaticBody3D" parent="Player"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraMount"]
+transform = Transform3D(-1, 0, -8.74228e-08, -4.37114e-08, 0.866025, 0.5, 7.57103e-08, 0.5, -0.866025, 0.17921, 2.70387, -1.98963)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/CameraMount"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.220391, 2.41074, -1.51222)
+shape = SubResource("BoxShape3D_vwbkb")
+
+[node name="Walls" type="StaticBody3D" parent="."]
+transform = Transform3D(11.8514, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.1412)
+collision_layer = 2
+collision_mask = 31
+
+[node name="gib_wall" parent="Walls" instance=ExtResource("7_8t4sn")]
+transform = Transform3D(0.0119321, 0, 12.4648, 0, 3, 0, -1.41249, 0, 0.105297, 0, 0, -0.153548)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(25.1112, 0, -1.67148e-10, 0, 6.85048, 0, 0, 0, 0.265876, -4.08635e-09, 3.74997, -0.422421)
+shape = SubResource("BoxShape3D_8d1ki")
+
+[node name="Walls3" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.00894076, 0, 1.00252, 0, 1.33433, 0, -1.10877, 0, -0.00808398, 147.029, -0.629085, -0.456596)
+collision_layer = 2
+collision_mask = 31
+
+[node name="gib_wall" parent="Walls3" instance=ExtResource("7_8t4sn")]
+transform = Transform3D(0.0119321, 0, 12.4648, 0, 3, 0, -1.41249, 0, 0.105297, 0, 0, -0.153548)
+
+[node name="Walls4" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.00894076, 0, 1.00252, 0, 1.33433, 0, -1.10877, 0, -0.00808398, -148.139, -0.629085, -0.456596)
+collision_layer = 2
+collision_mask = 31
+
+[node name="gib_wall" parent="Walls4" instance=ExtResource("7_8t4sn")]
+transform = Transform3D(0.0119321, 0, 12.4648, 0, 3, 0, -1.41249, 0, 0.105297, 0, 0, -0.153548)
+
+[node name="Roof" type="StaticBody3D" parent="."]
+transform = Transform3D(11.9347, 0, 0, 0, 0.357542, 0.834378, 0, -1.6658, 0.179088, 0, 7, 12.1412)
+collision_layer = 2
+collision_mask = 30
+
+[node name="gib_wall" parent="Roof" instance=ExtResource("7_8t4sn")]
+transform = Transform3D(0.0119321, 0, 12.4648, 0, 3, 0, -1.41249, 0, 0.105297, 0, 0, -0.153548)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Roof"]
+transform = Transform3D(24.7456, 0, 0, 0, 0.00972911, 7.44565, 0, -0.757335, 0.0956438, -0.0362485, 3.48824, -0.275581)
+shape = SubResource("BoxShape3D_8xar5")
+
+[node name="Roof2" type="StaticBody3D" parent="."]
+transform = Transform3D(11.9554, 0, 0, 0, -0.397604, 0.845539, 0, -1.77645, -0.189248, -0.0161004, 9.42248, 0.419995)
+collision_layer = 2
+collision_mask = 30
+
+[node name="gib_wall" parent="Roof2" instance=ExtResource("7_8t4sn")]
+transform = Transform3D(0.0119321, 0, 12.4648, 0, 3, 0, -1.41249, 0, 0.105297, 0, 0, -0.153548)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Roof2"]
+transform = Transform3D(24.7029, 0, 0, 0, -0.00847068, 7.18334, 0, -0.649671, -0.0936573, -0.016, 3.56421, -0.547383)
+shape = SubResource("BoxShape3D_8xar5")
+
+[node name="Walls2" type="StaticBody3D" parent="."]
+transform = Transform3D(11.8726, 0, 0, 0, 1.00786, 0, 0, 0, 1.00786, -0.0546436, -0.512424, -11.5071)
+collision_layer = 2
+collision_mask = 31
+
+[node name="gib_wall" parent="Walls2" instance=ExtResource("7_8t4sn")]
+transform = Transform3D(0.0119321, 0, 12.4648, 0, 3, 0, -1.41249, 0, 0.105297, 0, 0, -0.153548)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Walls2"]
+transform = Transform3D(25.0662, 0, -1.66848e-10, 0, 6.79703, 0, 0, 0, 0.263801, 0.00460248, 4.22913, 0.184896)
+shape = SubResource("BoxShape3D_8d1ki")
+
+[editable path="Player/hoodie_blender_remix"]

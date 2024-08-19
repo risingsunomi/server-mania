@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7v1ejaiwaghg"]
+
+[ext_resource type="PackedScene" uid="uid://djonoekm0weor" path="res://assets/server_rack_edit.glb" id="1_ild5w"]
+[ext_resource type="Script" path="res://scripts/server_rack.gd" id="1_thwp3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2jcpc"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="ServerRack" type="RigidBody3D" parent="."]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_thwp3")
+
+[node name="server_rack_edit" parent="ServerRack" instance=ExtResource("1_ild5w")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ServerRack"]
+transform = Transform3D(1.02531, 0, 0, 0, 2.65254, 0, 0, 0, 1, 0.0538689, 1.34593, 0)
+shape = SubResource("BoxShape3D_2jcpc")
