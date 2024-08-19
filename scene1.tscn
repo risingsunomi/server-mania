@@ -74,84 +74,84 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.50768, 75.8214, -1.98147)
 light_color = Color(0.913471, 0.888646, 0.838858, 1)
 light_energy = 10.0
 light_bake_mode = 1
-omni_range = 50.0
+omni_range = 120.0
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.407, 75.821, -1.981)
 light_color = Color(0.0941686, 0.575338, 0.818256, 1)
 light_energy = 10.0
 light_bake_mode = 1
-omni_range = 50.0
+omni_range = 120.0
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.285, 75.821, -1.981)
 light_color = Color(0.0941686, 0.575338, 0.818256, 1)
 light_energy = 10.0
 light_bake_mode = 1
-omni_range = 50.0
+omni_range = 120.0
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.906, 75.821, -1.981)
 light_color = Color(0.913725, 0.890196, 0.839216, 1)
 light_energy = 10.0
 light_bake_mode = 1
-omni_range = 50.0
+omni_range = 120.0
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.687, 75.821, -1.981)
 light_color = Color(0.0941686, 0.575338, 0.818256, 1)
 light_energy = 10.0
 light_bake_mode = 1
-omni_range = 50.0
+omni_range = 120.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.149, 75.821, -1.981)
 light_color = Color(0.0941176, 0.576471, 0.819608, 1)
 light_energy = 10.0
 light_bake_mode = 1
-omni_range = 50.0
+omni_range = 120.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.447, 75.821, -1.981)
 light_color = Color(0.0941176, 0.576471, 0.819608, 1)
 light_energy = 10.0
 light_bake_mode = 1
-omni_range = 50.0
+omni_range = 120.0
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.264, 75.821, -1.981)
 light_color = Color(0.0941176, 0.576471, 0.819608, 1)
 light_energy = 10.0
 light_bake_mode = 1
-omni_range = 50.0
+omni_range = 120.0
 
 [node name="OmniLight3D11" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.342, 75.821, -1.981)
 light_color = Color(0.0941176, 0.576471, 0.819608, 1)
 light_energy = 10.0
 light_bake_mode = 1
-omni_range = 50.0
+omni_range = 120.0
 
 [node name="OmniLight3D12" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135.665, 75.821, -1.981)
 light_color = Color(0.0941176, 0.576471, 0.819608, 1)
 light_energy = 10.0
 light_bake_mode = 1
-omni_range = 50.0
+omni_range = 120.0
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.435, 75.821, -1.981)
-light_color = Color(0.0941176, 0.576471, 0.819608, 1)
-light_energy = 2.455
+light_color = Color(0.933962, 0.258397, 0.167334, 1)
+light_energy = 10.123
 light_bake_mode = 1
-omni_range = 14.905
+omni_range = 120.0
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.828, 75.821, -1.981)
 light_color = Color(0.913725, 0.890196, 0.839216, 1)
 light_energy = 10.0
 light_bake_mode = 1
-omni_range = 50.0
+omni_range = 120.0
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(147.882, 0, 0, 0, 0.999333, 0, 0, 0, 11.992, 0, 0, 0)

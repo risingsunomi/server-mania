@@ -11,7 +11,7 @@ func load_servers() -> void:
 	var floor_size = floor_node.scale
 	var floor_position = floor_node.global_position
 	
-	var num_instances = randi_range(100, 2500)
+	var num_instances = randi_range(100, 1000)
 	var servers_placed = []
 	for i in range(num_instances):
 		# try to do a full clone with script and collision layers
