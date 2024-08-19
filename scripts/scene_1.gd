@@ -6,13 +6,12 @@ const server_rack_scene = preload("res://scenes/server_rack.tscn")
 @onready var floor_node = $Floor
 @onready var player = $Player
 
-func _ready() -> void:
-	var server_rack_script = load("res://scripts/server_rack.gd")
+func load_servers() -> void:
 	# get floor size
 	var floor_size = floor_node.scale
 	var floor_position = floor_node.global_position
 	
-	var num_instances = randi_range(100, 1000)
+	var num_instances = randi_range(100, 2500)
 	var servers_placed = []
 	for i in range(num_instances):
 		# try to do a full clone with script and collision layers
@@ -24,14 +23,13 @@ func _ready() -> void:
 		
 		if random_position not in servers_placed and random_position != player.position:
 			servers_placed.append(random_position)
-			server_rack.global_position = random_position
 			add_child(server_rack)
-		
-		
-		
-		
+			server_rack.global_position = random_position
+			
 
-
+func _ready() -> void:
+	load_servers()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
